@@ -15,6 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
       run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+        docker run --rm \
+          -v "${{ github.workspace }}:/srv/jekyll" \
+          -v "${{ github.workspace }}/_site:/srv/jekyll/_site" \
+          -w /srv/jekyll \
+          jekyll/builder:latest /bin/bash -lc \
+          "bundle config set force_ruby_platform false && bundle install --jobs 4 --retry 3 && bundle exec jekyll build --future"
