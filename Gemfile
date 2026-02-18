@@ -15,24 +15,24 @@ source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-feed", "~> 0.17"
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-paginate", "~> 1.1"
-  gem "jemoji", "~> 0.12.0"
+  gem "jemoji", "~> 0.13"
 end
 
 # Windows and JRuby specific gems:
 platforms :mingw, :x64_mingw, :mswin, :jruby do
-  # zoneinfo files aren't included on these OS's, 
+  # zoneinfo files aren't included on these operating systems,
   # so bundle the tzinfo-data gem and associated library.
   gem "tzinfo", ">= 1", "< 3"
   gem "tzinfo-data"
 
   # Performance-booster for watching directories on Windows
   gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-  gem "webrick", "~> 1.7", :platforms => [:mingw, :x64_mingw, :mswin]
+  gem "webrick", "~> 1.9", :platforms => [:mingw, :x64_mingw, :mswin]
 
-  # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds 
+  # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds
   # since newer versions of the gem do not have a Java counterpart.
   gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 end
